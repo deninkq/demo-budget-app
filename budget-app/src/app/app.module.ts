@@ -14,7 +14,7 @@ import { ExpensesComponent } from './expenses/expenses.component';
 import { SummaryComponent } from './statistic/summary/summary.component';
 import { IncomeItemComponent } from './incomes/income-item/income-item.component';
 import { ExpenseItemComponent } from './expenses/expense-item/expense-item.component';
-import { IncomesService } from './incomes/income-item/incomes.service';
+import { IncomesService } from './incomes/incomes.service';
 import { ExpensesService } from './expenses/expenses.service';
 
 @NgModule({

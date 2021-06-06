@@ -1,1 +1,6 @@
-<p>incomes works!</p>
+<div class="content">
+  <label for="incomes" class="label-incomes">Incomes</label>
+  <div *ngFor="let currentIncome of incomes">
+    <app-income-item [income]='currentIncome'></app-income-item>
+  </div>
+</div>

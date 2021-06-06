@@ -1,0 +1,13 @@
+.summary {
+  text-align: center;
+}
+
+.amounts {
+  display: flex;
+}
+
+.amounts div {
+  flex-grow: 1;
+  padding: 4em;
+  margin: 4em;
+}
