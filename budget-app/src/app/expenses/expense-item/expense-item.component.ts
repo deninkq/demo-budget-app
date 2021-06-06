@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Expense } from './expenses.midel';
 
 @Component({
   selector: 'app-expense-item',
   templateUrl: './expense-item.component.html',
-  styleUrls: ['./expense-item.component.css']
+  styleUrls: ['./expense-item.component.css'],
 })
 export class ExpenseItemComponent implements OnInit {
+  @Input() expense!: Expense;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
