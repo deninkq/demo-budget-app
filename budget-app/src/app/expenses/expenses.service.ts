@@ -1,18 +1,16 @@
+import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { Income } from '../incomes/income-item/income.model';
 import { Expense } from './expense-item/expenses.midel';
 
+@Injectable()
 export class ExpensesService {
-  expenses: Expense[] = [
-    {
-      description: 'Buy New Shoes',
-      value: 100,
-    },
-    {
-      description: 'Rent',
-      value: 520,
-    },
-    {
-      description: 'Supermarket',
-      value: 100,
-    },
-  ];
+  private expenseData = new BehaviorSubject<Expense[]>([
+    new Expense('Buy new Tshirt', 20),
+    new Expense('New Car', 2500),
+  ]);
+
+  getExpenses() {
+    return this.expenseData.asObservable();
+  }
 }

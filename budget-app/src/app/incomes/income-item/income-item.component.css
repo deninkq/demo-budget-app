@@ -2,9 +2,9 @@
   margin-top: 0.1em;
   padding: 1em;
   outline: none;
-  background-color: white;
+  background-color: lightgrey;
   border-radius: 5px;
-  border: 1px solid gray;
+  border: 1px solid black;
   display: flex;
   align-items: center;
   justify-content: space-between;

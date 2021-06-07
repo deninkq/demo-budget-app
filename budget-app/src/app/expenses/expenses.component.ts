@@ -8,11 +8,13 @@ import { ExpensesService } from './expenses.service';
   styleUrls: ['./expenses.component.css'],
 })
 export class ExpensesComponent implements OnInit {
-  expenses: Expense[] = [];
+  expenses!: Expense[];
 
   constructor(private expenceService: ExpensesService) {}
 
   ngOnInit(): void {
-    this.expenses = this.expenceService.expenses;
+    this.expenceService
+      .getExpenses()
+      .subscribe((data: Expense[]) => (this.expenses = data));
   }
 }
