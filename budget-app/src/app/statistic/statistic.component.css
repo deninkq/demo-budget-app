@@ -1,5 +1,6 @@
 .summary {
   text-align: center;
+  height: 50vh;
 }
 
 .amounts {
@@ -8,6 +9,6 @@
 
 .amounts div {
   flex-grow: 1;
-  padding: 4em;
-  margin: 4em;
+  padding: 3em;
+  margin: 3em;
 }

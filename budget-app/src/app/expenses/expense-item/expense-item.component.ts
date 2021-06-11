@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Expense } from './expenses.midel';
+import { Expense } from 'src/app/expenses/expenses.model';
 
 @Component({
   selector: 'app-expense-item',

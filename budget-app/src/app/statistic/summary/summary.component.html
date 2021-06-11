@@ -1,1 +1,23 @@
-<p>summary works!</p>
+<div class="container">
+  <div class="buttons">
+    <p class="label">Add:</p>
+    <div class="buttons-action">
+      <button class="btn income">Income</button>
+      <button class="btn expense">Expense</button>
+    </div>
+  </div>
+  <div class="inputs">
+    <div class="inputs-value">
+      <input type="text" placeholder="Description" class="description">
+      <input type="number" placeholder="Value" class="value">
+    </div>
+  </div>
+  <div class="budget">
+    <div class="date">
+      Available Budget in {{ currentDate | date:'yyyy-MM-dd' }} :
+    </div>
+    <div class="total-summary">
+      <p>{{incomeValue - expenseValue}} $</p>
+    </div>
+  </div>
+</div>

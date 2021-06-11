@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { Income } from '../incomes/income-item/income.model';
-import { Expense } from './expense-item/expenses.midel';
+import { Expense } from 'src/app/expenses/expenses.model';
 
 @Injectable()
 export class ExpensesService {

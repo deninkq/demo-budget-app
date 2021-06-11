@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Income } from './income-item/income.model';
+import { Income } from 'src/app/incomes/income.model';
 import { IncomesService } from './incomes.service';
 
 @Component({

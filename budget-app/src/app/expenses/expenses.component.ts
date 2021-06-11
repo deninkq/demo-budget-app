@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Expense } from './expense-item/expenses.midel';
+import { Expense } from 'src/app/expenses/expenses.model';
 import { ExpensesService } from './expenses.service';
 
 @Component({
