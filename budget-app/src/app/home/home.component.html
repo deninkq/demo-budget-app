@@ -1,7 +1,14 @@
 <div class="home-background">
   <div class="home-content">
-    <div>
-      <h1>Welcome</h1>
+    <p>Welcome Back, Denis Titov!</p>
+  </div>
+  <div class="budget">
+    <div class="date">
+      Available Budget in {{ currentDate | date:'yyyy-MM-dd' }} :
     </div>
+    <div class="total-summary">
+      <p>{{incomeValue - expenseValue}} $</p>
+    </div>
+    <a routerLink='/statistic'>Show Details</a>
   </div>
 </div>

@@ -12,8 +12,8 @@ import { IncomesService } from 'src/app/incomes/incomes.service';
 export class SummaryComponent implements OnInit {
   incomeValue!: number;
   expenseValue!: number;
-
   currentDate = new Date();
+
   constructor(
     private incomesService: IncomesService,
     private expensesService: ExpensesService

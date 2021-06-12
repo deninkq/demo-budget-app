@@ -16,6 +16,9 @@ import { IncomeItemComponent } from './incomes/income-item/income-item.component
 import { ExpenseItemComponent } from './expenses/expense-item/expense-item.component';
 import { IncomesService } from './incomes/incomes.service';
 import { ExpensesService } from './expenses/expenses.service';
+import { DetailsComponent } from './details/details.component';
+import { IncomeDetailsComponent } from './details/income-details/income-details.component';
+import { ExpenseDetailsComponent } from './details/expense-details/expense-details.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,9 @@ import { ExpensesService } from './expenses/expenses.service';
     SummaryComponent,
     IncomeItemComponent,
     ExpenseItemComponent,
+    DetailsComponent,
+    IncomeDetailsComponent,
+    ExpenseDetailsComponent,
   ],
   imports: [
     BrowserModule,
