@@ -19,6 +19,7 @@ import { ExpensesService } from './expenses/expenses.service';
 import { DetailsComponent } from './details/details.component';
 import { IncomeDetailsComponent } from './details/income-details/income-details.component';
 import { ExpenseDetailsComponent } from './details/expense-details/expense-details.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { ExpenseDetailsComponent } from './details/expense-details/expense-detai
     AppRoutingModule,
     NoopAnimationsModule,
     MaterialModule,
+    ReactiveFormsModule,
   ],
   providers: [IncomesService, ExpensesService],
   bootstrap: [AppComponent],

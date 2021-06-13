@@ -18,21 +18,40 @@
   flex-wrap: wrap;
 }
 
-.description {
-  width: 300px;
-  padding: 1em;
-  border-radius: 0.5em;
-  border: none;
-  margin-right: 1em;
-  outline: none;
-}
 
-.value {
+.add_value {
   width: 100px;
   border-radius: 0.5em;
   border: none;
   outline: none;
 }
+
+.incomeColor {
+  background-color: lightseagreen;
+  border: 2px solid lightseagreen;
+}
+
+.expenseColor {
+  background-color: red;
+  border: 2px solid red;
+}
+
+.add_description {
+  width: 300px;
+  padding: 1em;
+  border-radius: 0.5em;
+  margin-right: 1em;
+  outline: none;
+  background-color: white;
+}
+
+.add_value {
+  width: 100px;
+  border-radius: 0.5em;
+  outline: none;
+  background-color: white;
+}
+
 
 .buttons {
   width: 100%;
@@ -117,4 +136,15 @@ span {
 .total-summary {
   color: white;
   font-size: 5em;
+}
+
+.add-button {
+  margin-top: 1em;
+  padding: 1em 2em;
+  border-radius: 0.5em;
+  border: none;
+  color: white;
+  outline: none;
+  cursor: pointer;
+
 }

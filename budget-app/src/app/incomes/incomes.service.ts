@@ -12,4 +12,10 @@ export class IncomesService {
   getIncomes() {
     return this.incomeData.asObservable();
   }
+
+  addIncome(income: Income) {
+    const currentData = this.incomeData.value;
+    const updateData = [...currentData, income];
+    this.incomeData.next(updateData);
+  }
 }

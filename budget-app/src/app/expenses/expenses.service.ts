@@ -12,4 +12,10 @@ export class ExpensesService {
   getExpenses() {
     return this.expenseData.asObservable();
   }
+
+  addExpense(expense: Expense) {
+    const currentData = this.expenseData.value;
+    const updateData = [...currentData, expense];
+    this.expenseData.next(updateData);
+  }
 }
