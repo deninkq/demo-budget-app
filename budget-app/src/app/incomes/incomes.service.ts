@@ -18,4 +18,9 @@ export class IncomesService {
     const updateData = [...currentData, income];
     this.incomeData.next(updateData);
   }
+
+  deleteIncome(index: number) {
+    this.incomeData.value.splice(index, 1);
+    this.incomeData.next([...this.incomeData.value]);
+  }
 }

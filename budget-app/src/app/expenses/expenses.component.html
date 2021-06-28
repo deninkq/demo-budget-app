@@ -1,5 +1,12 @@
-<div class="container">
-  <label for="expenses" class="label-expenses">Expenses</label>
+<div class="content">
+  <div class="top-content">
+    <label for="expenses" class="label-expenses">Expenses</label>
+    <div>
+      <mat-icon class="icon-more"><a routerLink="/details/expenses">more_horiz</a></mat-icon>
+
+    </div>
+  </div>
+
   <div *ngFor="let currentExpense of expenses">
     <app-expense-item [expense]="currentExpense"></app-expense-item>
   </div>

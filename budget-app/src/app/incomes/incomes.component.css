@@ -1,4 +1,14 @@
+.top-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .label-incomes {
   font-size: 2em;
   color: lightseagreen;
+}
+
+a {
+  text-decoration: none;
 }

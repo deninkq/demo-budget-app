@@ -1,6 +1,13 @@
 <div class="content">
-  <label for="incomes" class="label-incomes">Incomes</label>
-  <div *ngFor="let currentIncome of incomes">
-    <app-income-item [income]='currentIncome'></app-income-item>
+  <div class="top-section">
+    <label for="incomes" class="label-incomes">Incomes</label>
+    <div>
+      <mat-icon class="icon-more"><a routerLink="/details/incomes">more_horiz</a></mat-icon>
+    </div>
   </div>
+
+  <div *ngFor="let currentIncome of incomes;let i=index">
+    <app-income-item [income]='currentIncome' [id]="i"></app-income-item>
+  </div>
+
 </div>

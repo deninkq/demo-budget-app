@@ -1,4 +1,14 @@
+.top-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .label-expenses {
   font-size: 2em;
   color: red;
+}
+
+a {
+  text-decoration: none;
 }

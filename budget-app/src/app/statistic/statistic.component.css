@@ -1,6 +1,9 @@
 .summary {
   text-align: center;
-  height: 50vh;
+  background: url('../../assets/stephen-phillips-hostreviews-co-uk-em37kS8WJJQ-unsplash.jpg') center center no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: auto
 }
 
 .amounts {

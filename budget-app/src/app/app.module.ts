@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -19,6 +18,7 @@ import { ExpensesService } from './expenses/expenses.service';
 import { IncomeDetailsComponent } from './details/income-details/income-details.component';
 import { ExpenseDetailsComponent } from './details/expense-details/expense-details.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DetailsItemComponent } from './details/income-details/details-item/details-item.component';
 
 @NgModule({
   declarations: [
@@ -34,11 +34,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     ExpenseItemComponent,
     IncomeDetailsComponent,
     ExpenseDetailsComponent,
+    DetailsItemComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NoopAnimationsModule,
     MaterialModule,
     ReactiveFormsModule,
   ],

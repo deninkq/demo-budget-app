@@ -1,57 +1,29 @@
 .container {
   height: 100%;
   width: 100%;
-  background: url('../../../assets/summary.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-
 }
 
-.inputs {
-  margin-top: 3em;
-}
-
-.inputs-value {
+.budget {
+  font-family: Open Sans;
+  font-size: 16px;
+  font-weight: 400;
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: column;
 }
 
-
-.add_value {
-  width: 100px;
-  border-radius: 0.5em;
-  border: none;
-  outline: none;
+.date {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  font-size: 1.5em;
+  color: black
 }
 
-.incomeColor {
-  background-color: lightseagreen;
-  border: 2px solid lightseagreen;
+.total-summary {
+  color: black;
+  font-size: 5em;
 }
-
-.expenseColor {
-  background-color: red;
-  border: 2px solid red;
-}
-
-.add_description {
-  width: 300px;
-  padding: 1em;
-  border-radius: 0.5em;
-  margin-right: 1em;
-  outline: none;
-  background-color: white;
-}
-
-.add_value {
-  width: 100px;
-  border-radius: 0.5em;
-  outline: none;
-  background-color: white;
-}
-
 
 .buttons {
   width: 100%;
@@ -116,30 +88,58 @@ span {
   color: red;
 }
 
-.budget {
-  font-family: Open Sans;
-  font-size: 16px;
-  font-weight: 400;
+
+
+
+
+.inputs {
+  margin-top: 3em;
+}
+
+.inputs-value {
   display: flex;
   justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  flex-wrap: wrap;
 }
 
-.date {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  font-size: 1.5em;
-  color: white
+
+.add_value {
+  width: 100px;
+  border-radius: 0.5em;
+  border: none;
+  outline: none;
 }
 
-.total-summary {
-  color: white;
-  font-size: 5em;
+.incomeColor {
+  background-color: lightseagreen;
+  border: none
+}
+
+.expenseColor {
+  background-color: red;
+  border: none
+}
+
+.add_description {
+  width: 300px;
+  padding: 1em;
+  border-radius: 0.5em;
+  margin-right: 1em;
+  outline: none;
+  background-color: white;
+}
+
+.add_value {
+  width: 100px;
+  border-radius: 0.5em;
+  padding: 1em;
+  outline: none;
+  background-color: white;
 }
 
 .add-button {
   margin-top: 1em;
+  margin-bottom: 1em;
   padding: 1em 2em;
   border-radius: 0.5em;
   border: none;
@@ -147,4 +147,8 @@ span {
   outline: none;
   cursor: pointer;
 
+}
+
+input.ng-invalid.ng-touched {
+  border: 2px solid red;
 }

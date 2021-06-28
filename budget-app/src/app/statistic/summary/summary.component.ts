@@ -14,8 +14,8 @@ export class SummaryComponent implements OnInit {
   incomeValue!: number;
   expenseValue!: number;
 
-  description!: string;
-  value!: number;
+  inputDescription!: string;
+  inputValue!: number;
 
   addForm!: FormGroup;
 
@@ -30,8 +30,9 @@ export class SummaryComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.totalMoney();
     this.addInputForm();
+    this.totalMoney();
+    this.onIncomeClicked();
   }
 
   totalMoney() {
@@ -46,29 +47,37 @@ export class SummaryComponent implements OnInit {
 
   addInputForm() {
     this.addForm = new FormGroup({
-      description: new FormControl(null, Validators.required),
+      description: new FormControl('', Validators.required),
       value: new FormControl(null, Validators.required),
     });
   }
 
   onIncomeClicked() {
     this.showExpenseForm = false;
-    this.showIncomeForm = !this.showIncomeForm;
+    this.showIncomeForm = true;
   }
 
   onExpenseClicked() {
     this.showIncomeForm = false;
-    this.showExpenseForm = !this.showExpenseForm;
+    this.showExpenseForm = true;
   }
 
   onAddClicked() {
-    if (this.description !== '' && this.value > 0 && this.showIncomeForm) {
-      const income = new Income(this.description, this.value);
+    if (
+      this.inputDescription !== '' &&
+      this.inputValue > 0 &&
+      this.showIncomeForm
+    ) {
+      const income = new Income(this.inputDescription, this.inputValue);
       this.incomesService.addIncome(income);
     }
 
-    if (this.description !== '' && this.value > 0 && this.showExpenseForm) {
-      const expense = new Expense(this.description, this.value);
+    if (
+      this.inputDescription !== '' &&
+      this.inputValue > 0 &&
+      this.showExpenseForm
+    ) {
+      const expense = new Expense(this.inputDescription, this.inputValue);
       this.expensesService.addExpense(expense);
     }
 

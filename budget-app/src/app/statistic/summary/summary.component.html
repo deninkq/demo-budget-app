@@ -4,7 +4,7 @@
       Available Budget in {{ currentDate | date:'dd-MM-yyyy' }} :
     </div>
     <div class="total-summary">
-      <p>{{incomeValue - expenseValue}} $</p>
+      <p>{{incomeValue - expenseValue}} BGN</p>
     </div>
   </div>
 
@@ -17,14 +17,24 @@
   </div>
 
   <form [formGroup]="addForm" (ngSubmit)="onAddClicked()">
-    <div class="inputs" *ngIf="showIncomeForm || showExpenseForm">
+    <div class="inputs">
+
       <div class="inputs-value">
-        <input type="text" name="description" placeholder="Add Description" class="add_description"
-          formControlName="description" [(ngModel)]="description"
-          [ngClass]="{'incomeColor' : showIncomeForm,'expenseColor':showExpenseForm}">
-        <input type="number" name="value" placeholder="Value" class="add_value" formControlName="value"
-          [(ngModel)]="value" [ngClass]="{'incomeColor' : showIncomeForm,'expenseColor':showExpenseForm}">
+
+        <div>
+          <input type="text" name="description" placeholder="Add Description" class="add_description"
+            formControlName="description" [(ngModel)]="inputDescription"
+            [ngClass]="{'incomeColor' : showIncomeForm,'expenseColor':showExpenseForm}">
+        </div>
+
+        <div>
+          <input type="number" name="value" placeholder="Value" class="add_value" formControlName="value"
+            [(ngModel)]="inputValue" [ngClass]="{'incomeColor' : showIncomeForm,'expenseColor':showExpenseForm}">
+        </div>
+
       </div>
+
+
       <button type="submit" class="add-button"
         [ngClass]="{'incomeColor' : showIncomeForm,'expenseColor':showExpenseForm}">Add</button>
     </div>
