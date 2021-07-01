@@ -12,21 +12,18 @@
 
 .item-description {
   display: flex;
-  align-items: center;
 }
 
 .item-value {
   display: flex;
-  align-items: center;
 }
 
 .desc {
-  font-size: 1.5em;
   margin-left: 0.5em;
+  font-size: 1.5em;
 }
 
 .val {
   font-size: 1.5em;
   color: red;
-  margin-right: 0.5em;
 }

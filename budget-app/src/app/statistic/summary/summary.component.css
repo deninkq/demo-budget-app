@@ -1,6 +1,9 @@
 .container {
   height: 100%;
   width: 100%;
+  background: url('../../../assets/stephen-phillips-hostreviews-co-uk-em37kS8WJJQ-unsplash.jpg') center center no-repeat;
+  background-size: cover;
+
 }
 
 .budget {
@@ -89,9 +92,6 @@ span {
 }
 
 
-
-
-
 .inputs {
   margin-top: 3em;
 }
@@ -101,7 +101,6 @@ span {
   justify-content: center;
   flex-wrap: wrap;
 }
-
 
 .add_value {
   width: 100px;
@@ -151,4 +150,10 @@ span {
 
 input.ng-invalid.ng-touched {
   border: 2px solid red;
+}
+
+.error-message {
+  color: white;
+  margin-top: 0.5em;
+  font-size: 1.2em;
 }

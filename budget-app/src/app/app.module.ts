@@ -18,7 +18,8 @@ import { ExpensesService } from './expenses/expenses.service';
 import { IncomeDetailsComponent } from './details/income-details/income-details.component';
 import { ExpenseDetailsComponent } from './details/expense-details/expense-details.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { DetailsItemComponent } from './details/income-details/details-item/details-item.component';
+import { IncomeDetailsItemComponent } from './details/income-details/income-details-item/income-details-item.component';
+import { ExpenseDetailsItemComponent } from './details/expense-details/expense-details-item/expense-details-item.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { DetailsItemComponent } from './details/income-details/details-item/deta
     ExpenseItemComponent,
     IncomeDetailsComponent,
     ExpenseDetailsComponent,
-    DetailsItemComponent,
+    IncomeDetailsItemComponent,
+    ExpenseDetailsItemComponent,
   ],
   imports: [
     BrowserModule,

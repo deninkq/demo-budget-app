@@ -1,4 +1,13 @@
-<div class="item">
-  <div class="desc">{{expense.description}}</div>
-  <div class="val">-{{expense.value}} BGN</div>
+<div class="items">
+  <div class="item-description">
+    <div class="date">{{expense.date | date:'dd-MM-yyyy' }}</div>
+    <div class="desc">{{expense.description}}</div>
+  </div>
+
+  <div class="item-value">
+    <div class="val">+{{expense.value}} BGN</div>
+    <button (click)="onDeleteClicked()">
+      <mat-icon>delete_forever</mat-icon>
+    </button>
+  </div>
 </div>

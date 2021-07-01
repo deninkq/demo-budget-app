@@ -18,4 +18,9 @@ export class ExpensesService {
     const updateData = [...currentData, expense];
     this.expenseData.next(updateData);
   }
+
+  deleteService(index: number) {
+    this.expenseData.value.splice(index, 1);
+    this.expenseData.next([...this.expenseData.value]);
+  }
 }

@@ -25,18 +25,24 @@
           <input type="text" name="description" placeholder="Add Description" class="add_description"
             formControlName="description" [(ngModel)]="inputDescription"
             [ngClass]="{'incomeColor' : showIncomeForm,'expenseColor':showExpenseForm}">
+          <span *ngIf="!addForm.get('description')?.valid&& addForm.get('description')?.touched"
+            class="error-message">Please enter
+            description</span>
         </div>
 
         <div>
           <input type="number" name="value" placeholder="Value" class="add_value" formControlName="value"
             [(ngModel)]="inputValue" [ngClass]="{'incomeColor' : showIncomeForm,'expenseColor':showExpenseForm}">
+          <!-- <span *ngIf="!addForm.get('value')?.valid&& addForm.get('value')?.touched" class="error-message">Please enter
+            valid number</span> -->
         </div>
 
       </div>
 
 
       <button type="submit" class="add-button"
-        [ngClass]="{'incomeColor' : showIncomeForm,'expenseColor':showExpenseForm}">Add</button>
+        [ngClass]="{'incomeColor' : showIncomeForm,'expenseColor':showExpenseForm}"
+        [disabled]="!addForm.valid">Add</button>
     </div>
   </form>
 </div>

@@ -1,1 +1,8 @@
-<p>expense-details works!</p>
+<div class="container">
+  <div class="label-expenses">
+    <label for="expenses" class="label">Expenses</label>
+  </div>
+  <div *ngFor="let currExpense of expenses" class="expense">
+    <app-expense-details-item [expense]="currExpense"></app-expense-details-item>
+  </div>
+</div>
