@@ -14,7 +14,7 @@ export class SummaryComponent implements OnInit {
   incomeValue!: number;
   expenseValue!: number;
 
-  inputDescription!: string;
+  inputDescription = '';
   inputValue!: number;
 
   addForm!: FormGroup;
@@ -47,17 +47,19 @@ export class SummaryComponent implements OnInit {
 
   addInputForm() {
     this.addForm = new FormGroup({
-      description: new FormControl('', Validators.required),
+      description: new FormControl(null, Validators.required),
       value: new FormControl(null, Validators.required),
     });
   }
 
   onIncomeClicked() {
+    this.addForm.reset();
     this.showExpenseForm = false;
     this.showIncomeForm = true;
   }
 
   onExpenseClicked() {
+    this.addForm.reset();
     this.showIncomeForm = false;
     this.showExpenseForm = true;
   }
@@ -70,6 +72,8 @@ export class SummaryComponent implements OnInit {
     ) {
       const income = new Income(this.inputDescription, this.inputValue);
       this.incomesService.addIncome(income);
+
+      this.addForm.reset();
     }
 
     if (
@@ -79,8 +83,8 @@ export class SummaryComponent implements OnInit {
     ) {
       const expense = new Expense(this.inputDescription, this.inputValue);
       this.expensesService.addExpense(expense);
-    }
 
-    this.addForm.reset();
+      this.addForm.reset();
+    }
   }
 }

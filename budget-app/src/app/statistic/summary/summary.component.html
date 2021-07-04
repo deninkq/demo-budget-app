@@ -20,29 +20,28 @@
     <div class="inputs">
 
       <div class="inputs-value">
-
         <div>
           <input type="text" name="description" placeholder="Add Description" class="add_description"
             formControlName="description" [(ngModel)]="inputDescription"
             [ngClass]="{'incomeColor' : showIncomeForm,'expenseColor':showExpenseForm}">
-          <span *ngIf="!addForm.get('description')?.valid&& addForm.get('description')?.touched"
-            class="error-message">Please enter
-            description</span>
+          <p *ngIf="!addForm.get('description')?.valid && addForm.get('description')?.touched" class="error-message">
+            Please enter description</p>
         </div>
 
         <div>
           <input type="number" name="value" placeholder="Value" class="add_value" formControlName="value"
             [(ngModel)]="inputValue" [ngClass]="{'incomeColor' : showIncomeForm,'expenseColor':showExpenseForm}">
-          <!-- <span *ngIf="!addForm.get('value')?.valid&& addForm.get('value')?.touched" class="error-message">Please enter
-            valid number</span> -->
+          <p *ngIf="!addForm.get('value')?.valid && addForm.get('value')?.touched" class="error-message">Please enter
+            valid number</p>
         </div>
-
       </div>
 
+      <div class="button-value">
+        <button type="submit" class="add-button"
+          [ngClass]="{'incomeColor' : showIncomeForm,'expenseColor':showExpenseForm}">Add</button>
+        <p *ngIf="!addForm.valid && addForm.touched" class="error-message">Please fill the required fields</p>
+      </div>
 
-      <button type="submit" class="add-button"
-        [ngClass]="{'incomeColor' : showIncomeForm,'expenseColor':showExpenseForm}"
-        [disabled]="!addForm.valid">Add</button>
     </div>
   </form>
 </div>
