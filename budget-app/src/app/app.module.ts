@@ -20,6 +20,7 @@ import { ExpenseDetailsComponent } from './details/expense-details/expense-detai
 import { ReactiveFormsModule } from '@angular/forms';
 import { IncomeDetailsItemComponent } from './details/income-details/income-details-item/income-details-item.component';
 import { ExpenseDetailsItemComponent } from './details/expense-details/expense-details-item/expense-details-item.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { ExpenseDetailsItemComponent } from './details/expense-details/expense-d
     AppRoutingModule,
     MaterialModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [IncomesService, ExpensesService],
   bootstrap: [AppComponent],

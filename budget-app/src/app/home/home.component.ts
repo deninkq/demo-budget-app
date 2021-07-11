@@ -24,8 +24,10 @@ export class HomeComponent implements OnInit {
   }
 
   totalMoney() {
-    this.incomesService.getIncomes().subscribe((data: Income[]) => {
-      this.incomeValue = data.map((x) => x.value).reduce((a, b) => a + b, 0);
+    this.incomesService.updateIncomesState().subscribe(() => {
+      this.incomesService.getIncomes().subscribe((data: Income[]) => {
+        this.incomeValue = data.map((x) => x.value).reduce((a, b) => a + b, 0);
+      });
     });
 
     this.expensesService.getExpenses().subscribe((data: Expense[]) => {

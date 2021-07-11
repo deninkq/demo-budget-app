@@ -8,13 +8,15 @@ import { IncomesService } from './incomes.service';
   styleUrls: ['./incomes.component.css'],
 })
 export class IncomesComponent implements OnInit {
-  incomes!: Income[];
+  incomes: Income[] = [];
 
   constructor(private incomeService: IncomesService) {}
 
   ngOnInit(): void {
-    this.incomeService.getIncomes().subscribe((data: Income[]) => {
-      this.incomes = data;
+    this.incomeService.updateIncomesState().subscribe(() => {
+      this.incomeService.getIncomes().subscribe((incomes) => {
+        this.incomes = incomes;
+      });
     });
   }
 }

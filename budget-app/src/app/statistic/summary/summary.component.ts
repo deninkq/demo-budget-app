@@ -14,9 +14,6 @@ export class SummaryComponent implements OnInit {
   incomeValue!: number;
   expenseValue!: number;
 
-  inputDescription = '';
-  inputValue!: number;
-
   addForm!: FormGroup;
 
   showIncomeForm = false;
@@ -36,8 +33,10 @@ export class SummaryComponent implements OnInit {
   }
 
   totalMoney() {
-    this.incomesService.getIncomes().subscribe((data: Income[]) => {
-      this.incomeValue = data.map((x) => x.value).reduce((a, b) => a + b, 0);
+    this.incomesService.updateIncomesState().subscribe(() => {
+      this.incomesService.getIncomes().subscribe((data: Income[]) => {
+        this.incomeValue = data.map((x) => x.value).reduce((a, b) => a + b, 0);
+      });
     });
 
     this.expensesService.getExpenses().subscribe((data: Expense[]) => {
@@ -65,26 +64,33 @@ export class SummaryComponent implements OnInit {
   }
 
   onAddClicked() {
+    const formValue: { description: string; value: number } =
+      this.addForm.getRawValue();
+
     if (
-      this.inputDescription !== '' &&
-      this.inputValue > 0 &&
-      this.showIncomeForm
+      this.showIncomeForm &&
+      formValue.description !== '' &&
+      formValue.value > 0
     ) {
-      const income = new Income(this.inputDescription, this.inputValue);
-      this.incomesService.addIncome(income);
+      const newIncome: Income = {
+        description: formValue.description,
+        value: formValue.value,
+        date: new Date(),
+      };
+      this.incomesService.addIncome(newIncome).subscribe(() => {});
 
       this.addForm.reset();
     }
 
-    if (
-      this.inputDescription !== '' &&
-      this.inputValue > 0 &&
-      this.showExpenseForm
-    ) {
-      const expense = new Expense(this.inputDescription, this.inputValue);
-      this.expensesService.addExpense(expense);
+    // if (
+    //   this.inputDescription !== '' &&
+    //   this.inputValue > 0 &&
+    //   this.showExpenseForm
+    // ) {
+    //   const expense = new Expense(this.inputDescription, this.inputValue);
+    //   this.expensesService.addExpense(expense);
 
-      this.addForm.reset();
-    }
+    //   this.addForm.reset();
+    // }
   }
 }

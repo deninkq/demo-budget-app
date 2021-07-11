@@ -22,15 +22,14 @@
       <div class="inputs-value">
         <div>
           <input type="text" name="description" placeholder="Add Description" class="add_description"
-            formControlName="description" [(ngModel)]="inputDescription"
-            [ngClass]="{'incomeColor' : showIncomeForm,'expenseColor':showExpenseForm}">
+            formControlName="description" [ngClass]="{'incomeColor' : showIncomeForm,'expenseColor':showExpenseForm}">
           <p *ngIf="!addForm.get('description')?.valid && addForm.get('description')?.touched" class="error-message">
             Please enter description</p>
         </div>
 
         <div>
           <input type="number" name="value" placeholder="Value" class="add_value" formControlName="value"
-            [(ngModel)]="inputValue" [ngClass]="{'incomeColor' : showIncomeForm,'expenseColor':showExpenseForm}">
+            [ngClass]="{'incomeColor' : showIncomeForm,'expenseColor':showExpenseForm}">
           <p *ngIf="!addForm.get('value')?.valid && addForm.get('value')?.touched" class="error-message">Please enter
             valid number</p>
         </div>

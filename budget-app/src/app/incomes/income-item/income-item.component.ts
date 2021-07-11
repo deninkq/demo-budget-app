@@ -9,7 +9,7 @@ import { IncomesService } from '../incomes.service';
 })
 export class IncomeItemComponent implements OnInit {
   @Input() income!: Income;
-  @Input() id!: number;
+  @Input() id!: string;
 
   constructor(private incomesService: IncomesService) {}
 

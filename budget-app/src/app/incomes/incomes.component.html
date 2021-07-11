@@ -6,8 +6,8 @@
     </div>
   </div>
 
-  <div *ngFor="let currentIncome of incomes;let i=index">
-    <app-income-item [income]='currentIncome' [id]="i"></app-income-item>
+  <div *ngFor="let currentIncome of incomes">
+    <app-income-item [income]='currentIncome' [id]="currentIncome.id"></app-income-item>
   </div>
 
 </div>
