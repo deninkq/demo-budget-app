@@ -1,26 +1,47 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Expense } from 'src/app/expenses/expenses.model';
 
 @Injectable()
 export class ExpensesService {
-  private expenseData = new BehaviorSubject<Expense[]>([
-    // new Expense('Buy new Tshirt', 20),
-    // new Expense('New Car', 2500),
-  ]);
+  private expenseData: BehaviorSubject<Expense[]> = new BehaviorSubject<
+    Expense[]
+  >([]);
+
+  constructor(private http: HttpClient) {}
 
   getExpenses() {
     return this.expenseData.asObservable();
   }
 
-  addExpense(expense: Expense) {
-    const currentData = this.expenseData.value;
-    const updateData = [...currentData, expense];
-    this.expenseData.next(updateData);
+  updateExpensesState() {
+    return this.http
+      .get<{ [key: string]: Expense }>(
+        'https://budget-application-587ed-default-rtdb.firebaseio.com/expenses.json'
+      )
+      .pipe(
+        map((responseData) => {
+          const expenseArray: Expense[] = [];
+          for (const key in responseData) {
+            expenseArray.push({ ...responseData[key], id: key });
+          }
+          this.expenseData.next(expenseArray);
+        })
+      );
   }
 
-  deleteService(index: number) {
-    this.expenseData.value.splice(index, 1);
-    this.expenseData.next([...this.expenseData.value]);
+  addExpense(expenseData: Expense) {
+    return this.http.post(
+      'https://budget-application-587ed-default-rtdb.firebaseio.com/expenses.json',
+      expenseData
+    );
+  }
+
+  deleteExepense(id: string) {
+    return this.http.delete<Expense>(
+      `https://budget-application-587ed-default-rtdb.firebaseio.com/expenses/${id}.json`
+    );
   }
 }

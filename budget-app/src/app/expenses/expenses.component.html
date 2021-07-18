@@ -8,6 +8,6 @@
   </div>
 
   <div *ngFor="let currentExpense of expenses">
-    <app-expense-item [expense]="currentExpense"></app-expense-item>
+    <app-expense-item [expense]="currentExpense" [id]='currentExpense.id'></app-expense-item>
   </div>
 </div>

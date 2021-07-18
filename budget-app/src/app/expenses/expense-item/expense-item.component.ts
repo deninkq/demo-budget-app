@@ -9,13 +9,15 @@ import { ExpensesService } from '../expenses.service';
 })
 export class ExpenseItemComponent implements OnInit {
   @Input() expense!: Expense;
-  @Input() id!: number;
+  @Input() id!: string;
 
   constructor(private expensesService: ExpensesService) {}
 
   ngOnInit(): void {}
 
   onDeleteClicked() {
-    this.expensesService.deleteService(this.id);
+    this.expensesService.deleteExepense(this.id).subscribe(() => {
+      this.expensesService.updateExpensesState().subscribe();
+    });
   }
 }

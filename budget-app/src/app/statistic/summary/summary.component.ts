@@ -27,7 +27,6 @@ export class SummaryComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.incomesService.updateIncomesState();
     this.addInputForm();
     this.totalMoney();
     this.onIncomeClicked();
@@ -39,8 +38,10 @@ export class SummaryComponent implements OnInit {
       this.incomeValue = data.map((x) => x.value).reduce((a, b) => a + b, 0);
     });
 
-    this.expensesService.getExpenses().subscribe((data: Expense[]) => {
-      this.expenseValue = data.map((x) => x.value).reduce((a, b) => a + b, 0);
+    this.expensesService.updateExpensesState().subscribe(() => {
+      this.expensesService.getExpenses().subscribe((data: Expense[]) => {
+        this.expenseValue = data.map((x) => x.value).reduce((a, b) => a + b, 0);
+      });
     });
   }
 
@@ -64,8 +65,7 @@ export class SummaryComponent implements OnInit {
   }
 
   onAddClicked() {
-    const formValue: { description: string; value: number } =
-      this.addForm.getRawValue();
+    const formValue: Expense = this.addForm.getRawValue();
 
     if (
       this.showIncomeForm &&
@@ -77,6 +77,7 @@ export class SummaryComponent implements OnInit {
         value: formValue.value,
         date: new Date(),
       };
+
       this.incomesService.addIncome(newIncome).subscribe(() => {
         this.incomesService.updateIncomesState().subscribe();
       });
@@ -84,15 +85,22 @@ export class SummaryComponent implements OnInit {
       this.addForm.reset();
     }
 
-    // if (
-    //   this.inputDescription !== '' &&
-    //   this.inputValue > 0 &&
-    //   this.showExpenseForm
-    // ) {
-    //   const expense = new Expense(this.inputDescription, this.inputValue);
-    //   this.expensesService.addExpense(expense);
+    if (
+      this.showExpenseForm &&
+      formValue.description !== '' &&
+      formValue.value > 0
+    ) {
+      const newExpense: Expense = {
+        description: formValue.description,
+        value: formValue.value,
+        date: new Date(),
+      };
 
-    //   this.addForm.reset();
-    // }
+      this.expensesService.addExpense(newExpense).subscribe(() => {
+        this.expensesService.updateExpensesState().subscribe();
+      });
+
+      this.addForm.reset();
+    }
   }
 }
