@@ -16,6 +16,9 @@ export class IncomeItemComponent implements OnInit {
   ngOnInit(): void {}
 
   onDeleteClicked() {
-    this.incomesService.deleteIncome(this.id);
+    this.incomesService.deleteIncome(this.id).subscribe(() => {
+      console.log(`Income with Id = ${this.id} deleted`);
+      this.incomesService.updateIncomesState().subscribe();
+    });
   }
 }

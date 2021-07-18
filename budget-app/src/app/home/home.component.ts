@@ -20,14 +20,14 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.totalMoney();
+    this.incomesService.updateIncomesState().subscribe(() => {
+      this.totalMoney();
+    });
   }
 
   totalMoney() {
-    this.incomesService.updateIncomesState().subscribe(() => {
-      this.incomesService.getIncomes().subscribe((data: Income[]) => {
-        this.incomeValue = data.map((x) => x.value).reduce((a, b) => a + b, 0);
-      });
+    this.incomesService.getIncomes().subscribe((data: Income[]) => {
+      this.incomeValue = data.map((x) => x.value).reduce((a, b) => a + b, 0);
     });
 
     this.expensesService.getExpenses().subscribe((data: Expense[]) => {

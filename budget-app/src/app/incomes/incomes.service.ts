@@ -1,16 +1,24 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Income } from 'src/app/incomes/income.model';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class IncomesService implements OnInit {
-  private incomeData = new BehaviorSubject<Income[]>([]);
+  private incomeData: BehaviorSubject<Income[]> = new BehaviorSubject<Income[]>(
+    []
+  );
 
   constructor(private http: HttpClient) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.updateIncomesState().subscribe(() => {});
+  }
+
+  getIncomes(): Observable<Income[]> {
+    return this.incomeData.asObservable();
+  }
 
   updateIncomesState() {
     return this.http
@@ -20,6 +28,7 @@ export class IncomesService implements OnInit {
       .pipe(
         map((responseData) => {
           const incomesArray: Income[] = [];
+
           for (const key in responseData) {
             if (responseData.hasOwnProperty(key)) {
               incomesArray.push({ ...responseData[key], id: key });
@@ -30,10 +39,6 @@ export class IncomesService implements OnInit {
       );
   }
 
-  getIncomes() {
-    return this.incomeData.asObservable();
-  }
-
   addIncome(incomeData: Income) {
     return this.http.post<{ name: string }>(
       'https://budget-application-587ed-default-rtdb.firebaseio.com/incomes.json',
@@ -42,6 +47,8 @@ export class IncomesService implements OnInit {
   }
 
   deleteIncome(id: string) {
-    console.log(id);
+    return this.http.delete<Income>(
+      `https://budget-application-587ed-default-rtdb.firebaseio.com/incomes/${id}.json`
+    );
   }
 }

@@ -10,11 +10,11 @@ import { IncomesService } from './incomes.service';
 export class IncomesComponent implements OnInit {
   incomes: Income[] = [];
 
-  constructor(private incomeService: IncomesService) {}
+  constructor(private incomesService: IncomesService) {}
 
-  ngOnInit(): void {
-    this.incomeService.updateIncomesState().subscribe(() => {
-      this.incomeService.getIncomes().subscribe((incomes) => {
+  ngOnInit() {
+    this.incomesService.updateIncomesState().subscribe(() => {
+      this.incomesService.getIncomes().subscribe((incomes) => {
         this.incomes = incomes;
       });
     });

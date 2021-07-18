@@ -27,16 +27,16 @@ export class SummaryComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.incomesService.updateIncomesState();
     this.addInputForm();
     this.totalMoney();
     this.onIncomeClicked();
   }
 
   totalMoney() {
-    this.incomesService.updateIncomesState().subscribe(() => {
-      this.incomesService.getIncomes().subscribe((data: Income[]) => {
-        this.incomeValue = data.map((x) => x.value).reduce((a, b) => a + b, 0);
-      });
+    this.incomesService.updateIncomesState();
+    this.incomesService.getIncomes().subscribe((data: Income[]) => {
+      this.incomeValue = data.map((x) => x.value).reduce((a, b) => a + b, 0);
     });
 
     this.expensesService.getExpenses().subscribe((data: Expense[]) => {
@@ -77,7 +77,9 @@ export class SummaryComponent implements OnInit {
         value: formValue.value,
         date: new Date(),
       };
-      this.incomesService.addIncome(newIncome).subscribe(() => {});
+      this.incomesService.addIncome(newIncome).subscribe(() => {
+        this.incomesService.updateIncomesState().subscribe();
+      });
 
       this.addForm.reset();
     }
