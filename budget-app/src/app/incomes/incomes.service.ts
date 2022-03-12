@@ -29,7 +29,7 @@ export class IncomesService implements OnInit {
         map((responseData) => {
           const incomesArray: Income[] = [];
 
-          for (const key in responseData) {
+          for (let key in responseData) {
             if (responseData.hasOwnProperty(key)) {
               incomesArray.push({ ...responseData[key], id: key });
             }
